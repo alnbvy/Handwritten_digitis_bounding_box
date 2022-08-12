@@ -1,4 +1,4 @@
-# Image segmentation of the Pet dataset using Unet
+# Classification and object localization of the handwritten digits
 
 ## Table of Contents
 * [General Info](#general-information)
@@ -9,21 +9,24 @@
 
 
 ## General Information
-- The goal of the project is to develop a model to perform semantic image segmentation on the pet images
-- I am using a Unet neural network architecture which consists of an encoder and decoder section. This architecture is also a fully convolutional network:
+- The project has two goals: 1) first to classifiy the handwritten digit 2) predict the bounding box around the hand-written digit
+- I am using a branched neural network architecture using TensorFlow functional API: 
+  - 1) feature_extractor: these convolutional layers extract the features of the image.
+  - 2) classifier: This define the output layer that predicts among 10 categories (digits 0 through 9)
+  - 3) bounding_box_regression: This defines the output layer that predicts 4 numeric values, which define the coordinates of the bounding box (xmin, ymin, xmax, ymax)
+  
+![model](model.png)
 
-![Unet](Unet.png)
-![Encoder](Encoder.png)
-![Decoder](Decoder.png)
+- The link to the dataset: [Handwritten digits dataset](http://yann.lecun.com/exdb/mnist/).
 
-- The dataset is Oxford Pets - IIT dataset [BBC News Classification](https://www.robots.ox.ac.uk/~vgg/data/pets/). This dataset contains pet images, their classes, segmentation masks and head region-of-interest. I will only use the images and segmentation masks in this project. This dataset is already included in TensorFlow Datasets and we can simply download it. The segmentation masks are included in versions 3 and above.
-- The model achieves an accuracy of 85% on the validation set after 15 epochs.
-- I ran the notebook on Arizona State University's supercomputing cluster using two Tesla V100 GPUs. The information regarding the GPUs is included at the end of the notebook.
+![data](data.png)
+
+- The model achieves an accuracy of 99% for the classification and MSE of 0.0012 for the regression on the validation set after 10 epochs.
+- I ran the notebook on Arizona State University's supercomputing cluster using two Tesla V100 GPUs.
 
 ## Results
 
-![Example screenshot](Result1.png)
-![Example screenshot](Result2.png)
+![result](result.png)
 <!-- If you have screenshots you'd like to share, include them here. -->
 
 ## Technologies Used
