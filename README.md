@@ -2,7 +2,7 @@
 
 ## Table of Contents
 * [General Info](#general-information)
-* [Results](Results)
+* [Results](#Results)
 * [Technologies Used](#technologies-used)
 * [Contact](#contact)
 <!-- * [License](#license) -->
