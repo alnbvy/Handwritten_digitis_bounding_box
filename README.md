@@ -22,7 +22,7 @@
 ![data](data.png)
 
 - The model achieves an accuracy of 99% for the classification and MSE of 0.0012 for the regression on the validation set after 10 epochs.
-- I ran the notebook on Arizona State University's supercomputing cluster using two Tesla V100 GPUs.
+- The notebook has the capability to run on either TPUs, GPUs or CPUs. It uses tf.distribute.MirroredStrategy in case of multiple GPUs and tf.distribute.experimental.TPUStrategy in case of TPU.
 
 ## Results
 
